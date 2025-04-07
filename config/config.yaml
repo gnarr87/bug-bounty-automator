@@ -1,0 +1,43 @@
+# Configuration for the Bug Bounty Automator
+
+# --- Tool Paths ---
+# Specify paths if tools are not in the system's PATH
+# Leave blank or comment out if they are in PATH
+tools:
+  subfinder: subfinder
+  assetfinder: assetfinder
+  # amass: /path/to/amass # Example if not in PATH
+  httpx: httpx
+  nmap: nmap
+  naabu: naabu
+  whatweb: whatweb
+  nuclei: nuclei
+  nikto: nikto
+  # sqlmap: sqlmap # Requires careful setup
+
+# --- Scanner Settings ---
+# Add default flags or options for tools
+scanner_options:
+  nmap: "-sV -T4" # Service version detection, timing template
+  nuclei: "-c 50" # Concurrency
+  # Add other tool options as needed
+
+# --- LLM Analysis Settings ---
+llm:
+  # Set to true to enable LLM analysis after recon
+  enabled: false
+  # Choose the model (e.g., gpt-4, gpt-3.5-turbo, claude-2)
+  # Ensure you have the corresponding llm plugin installed (e.g., llm-openai, llm-anthropic)
+  # and the API key set via environment variable (e.g., OPENAI_API_KEY) or llm keys set command.
+  model: "gpt-3.5-turbo" # Default model
+  # You can customize the prompt used for analysis
+  prompt_template: |
+    Based on the following reconnaissance summary for target '{target}':
+    ---
+    {summary}
+    ---
+    Identify the top 3-5 most promising potential vulnerability types or attack vectors to investigate further. Focus on areas likely to yield high-impact findings. Provide a brief justification for each suggestion.
+
+# --- Output Settings ---
+output:
+  base_directory: "results" # Relative to project root

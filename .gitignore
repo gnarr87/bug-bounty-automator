@@ -1,0 +1,21 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Results directory (optional, uncomment if you don't want to commit results)
+# results/
+# results_test/
+
+# Tool directory (if Nikto or others are cloned locally)
+tools/
+
+# Environment variables (if you use a .env file)
+.env
+
+# VS Code settings
+.vscode/
+
+# Temporary files from scripts
+*.tmp

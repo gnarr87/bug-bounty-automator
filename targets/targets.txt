@@ -1,0 +1,5 @@
+# Add target domains, IPs, or URLs here, one per line.
+# Example:
+# example.com
+# https://test.example.org
+# 192.168.1.1
