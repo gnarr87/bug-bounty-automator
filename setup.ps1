@@ -7,7 +7,7 @@ function Test-CommandExists {
     param(
         [string]$commandName
     )
-    return (Get-Command $commandName -ErrorAction SilentlyContinue) -ne $null
+    return $null -ne (Get-Command $commandName -ErrorAction SilentlyContinue)
 }
 
 # --- Check Prerequisites ---
